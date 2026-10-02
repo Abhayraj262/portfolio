@@ -35,7 +35,7 @@ export const site = {
       bullets: [
         "Built a responsive multilingual website (12 languages) with a focused UI/UX and SEO optimization.",
         "Integrated Zoho CRM with contact forms, plus Google Sheets and Gmail for lead management.",
-        "Deployed on a Hostinger VPS with Nginx, keeping the site scalable and reliable.",
+        ", keeping the site scalable and reliable.",
       ],
     },
     {
