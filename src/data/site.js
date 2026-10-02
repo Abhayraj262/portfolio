@@ -1,0 +1,170 @@
+export const site = {
+  name: "Abhay Raj Kashyap",
+  shortName: "ARK",
+  role: "Full Stack Developer",
+  location: "New Delhi, India",
+  email: "abhayrajkashyap2002@gmail.com",
+  phone: "9667612013",
+  phoneHref: "+919667612013",
+  resumeUrl: "/AbhayResume.pdf",
+  objective:
+    "Full Stack Developer skilled in building scalable web applications, seeking to create impactful and innovative digital solutions.",
+  about: [
+    "I design and ship production web products — from multilingual marketing sites and CRM-backed lead funnels to full-stack learning platforms with payments.",
+    "My day-to-day stack is Next.js / React with Tailwind CSS, Node.js APIs, and PostgreSQL or MongoDB. I care about clean UI, solid auth, and deployments that stay reliable.",
+  ],
+  socials: {
+    linkedin: "https://www.linkedin.com/in/abhay-raj-kashyap-69646b21b",
+    github: "https://github.com/Abhayraj262",
+    twitter: "https://x.com/AbhayrajKa43212",
+    leetcode: "",
+  },
+  nav: [
+    { label: "About", href: "#about" },
+    { label: "Experience", href: "#experience" },
+    { label: "Projects", href: "#projects" },
+    { label: "Skills", href: "#skills" },
+    { label: "Contact", href: "#contact" },
+  ],
+  experience: [
+    {
+      title: "Full Stack Developer",
+      company: "Sun Consultants and Engineers",
+      location: "New Delhi",
+      period: "Feb 2025 — Present",
+      bullets: [
+        "Built a responsive multilingual website (12 languages) with a focused UI/UX and SEO optimization.",
+        "Integrated Zoho CRM with contact forms, plus Google Sheets and Gmail for lead management.",
+        "Deployed on a Hostinger VPS with Nginx, keeping the site scalable and reliable.",
+      ],
+    },
+    {
+      title: "Full Stack Developer Intern",
+      company: "Utrecht IT Consulting",
+      location: "Remote · Netherlands",
+      period: "Dec 2023 — May 2024",
+      bullets: [
+        "Developed the website for an international event in Saudi Arabia.",
+        "Created a database system to manage attendee details for 200+ event registrations.",
+      ],
+    },
+    {
+      title: "Backend Developer Intern",
+      company: "DRDO (Ministry of Defence)",
+      location: "New Delhi",
+      period: "Sep 2022 — Dec 2022",
+      bullets: [
+        "Developed backend APIs used by 50+ researchers for secure internal workflows.",
+        "Enhanced database performance, reducing report generation time by 30%.",
+      ],
+    },
+  ],
+  projects: [
+    {
+      name: "StudyNotion",
+      tag: "Ed-Tech Platform",
+      initials: "SN",
+      accent: "from-indigo-500/90 to-violet-600/90",
+      liveUrl: "https://ed-tech-mern.vercel.app/",
+      bullets: [
+        "Ed-Tech platform with JWT auth, role-based access, and content rating.",
+        "Instructors create courses and track analytics; learners rate and leave feedback.",
+        "Razorpay integrated for secure course purchases.",
+      ],
+      tech: ["React", "Node.js", "MongoDB", "JWT", "Razorpay"],
+    },
+    {
+      name: "CV Builder",
+      tag: "Resume Product",
+      initials: "CV",
+      accent: "from-sky-500/90 to-indigo-600/90",
+      liveUrl: "https://cv-builder-omega-lovat.vercel.app/",
+      bullets: [
+        "ATS-ready resume builder with live A4 preview and one-click vector PDF export.",
+        "Eight industry templates for tech, business, creative, and academic CVs.",
+        "Fully client-side — no signup wall, data stays in the browser.",
+      ],
+      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    },
+    {
+      name: "Gana Suno Sunao",
+      tag: "Realtime Music",
+      initials: "GS",
+      accent: "from-rose-500/90 to-orange-500/90",
+      liveUrl: "https://gana-suno-sunao.vercel.app/",
+      bullets: [
+        "Shared listening rooms so friends hear the same song at the same second.",
+        "Live chat, reactions, photos, and playlists — invite with one link.",
+        "Google sign-in, no password required.",
+      ],
+      tech: ["React", "Realtime", "Google Auth"],
+    },
+    {
+      name: "SoloTrip",
+      tag: "Travel Platform",
+      initials: "ST",
+      accent: "from-emerald-500/90 to-teal-600/90",
+      liveUrl: "https://solo-trip.netlify.app/",
+      bullets: [
+        "Solo-travel planner with curated destinations, routes, and trip saving.",
+        "Category discovery, group batches, and traveler stories in one flow.",
+        "Built for independent explorers — transparent plans, not rigid tour packages.",
+      ],
+      tech: ["React", "Netlify", "Maps"],
+    },
+    {
+      name: "URL Shortener",
+      tag: "Infrastructure",
+      initials: "US",
+      accent: "from-amber-500/90 to-orange-600/90",
+      liveUrl: "",
+      bullets: [
+        "Scalable URL shortening with custom short links and redirect handling.",
+        "Analytics, REST APIs, and database-backed URL management.",
+      ],
+      tech: ["Node.js", "REST APIs", "Database"],
+    },
+  ],
+  skills: [
+    {
+      group: "Frontend",
+      items: [
+        { name: "Next.js", icon: "nextjs" },
+        { name: "React", icon: "react" },
+        { name: "Tailwind CSS", icon: "tailwind" },
+        { name: "JavaScript", icon: "javascript" },
+      ],
+    },
+    {
+      group: "Backend",
+      items: [
+        { name: "Node.js", icon: "nodejs" },
+        { name: "Express", icon: "express" },
+        { name: "REST APIs", icon: "api" },
+        { name: "JWT Auth", icon: "jwt" },
+      ],
+    },
+    {
+      group: "Data",
+      items: [
+        { name: "PostgreSQL", icon: "postgres" },
+        { name: "MongoDB", icon: "mongodb" },
+      ],
+    },
+    {
+      group: "Tools & Ops",
+      items: [
+        { name: "Nginx", icon: "nginx" },
+        { name: "VPS / Hostinger", icon: "server" },
+        { name: "Razorpay", icon: "razorpay" },
+        { name: "Zoho CRM", icon: "zoho" },
+      ],
+    },
+  ],
+  education: {
+    degree: "BTech (Computer Science & Engineering)",
+    gpa: "7.8 CGPA",
+    school: "Maharshi Dayanand University, Rohtak",
+    period: "July 2020 — August 2024",
+  },
+};
