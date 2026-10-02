@@ -20,7 +20,19 @@ export default function Experience() {
                 <p className="text-xs font-medium tracking-wide text-accent uppercase">{job.period}</p>
                 <h3 className="mt-2 font-heading text-xl font-medium text-foreground">{job.title}</h3>
                 <p className="mt-1 text-sm text-muted">
-                  {job.company} · {job.location}
+                  {job.companyUrl ? (
+                    <a
+                      href={job.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline-offset-4 transition-colors hover:text-accent hover:underline"
+                    >
+                      {job.company}
+                    </a>
+                  ) : (
+                    job.company
+                  )}{" "}
+                  · {job.location}
                 </p>
                 <ul className="mt-4 space-y-2 text-[15px] leading-7 text-muted">
                   {job.bullets.map((bullet) => (

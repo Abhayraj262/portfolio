@@ -30,17 +30,19 @@ export const site = {
     {
       title: "Full Stack Developer",
       company: "Sun Consultants and Engineers",
+      companyUrl: "https://bis-certifications.com/",
       location: "New Delhi",
       period: "Feb 2025 — Present",
       bullets: [
         "Built a responsive multilingual website (12 languages) with a focused UI/UX and SEO optimization.",
         "Integrated Zoho CRM with contact forms, plus Google Sheets and Gmail for lead management.",
-        ", keeping the site scalable and reliable.",
+        "Deployed on VPS (Hostinger) with Nginx, ensuring scalability and reliability.",
       ],
     },
     {
       title: "Full Stack Developer Intern",
       company: "Utrecht IT Consulting",
+      companyUrl: "https://utrechtitconsulting.com/event/",
       location: "Remote · Netherlands",
       period: "Dec 2023 — May 2024",
       bullets: [
@@ -61,10 +63,26 @@ export const site = {
   ],
   projects: [
     {
+      name: "Global Khera",
+      tag: "Freelance · Live Radio",
+      initials: "GK",
+      accent: "from-rose-600/90 to-amber-500/90",
+      image: "/projects/global-khera.png",
+      liveUrl: "https://www.globalkhera.com/",
+      ctaLabel: "Visit website",
+      bullets: [
+        "Freelance production site used by real listeners worldwide.",
+        "24/7 Indian radio, Punjabi podcasts, and community broadcasts.",
+        "Live streaming, podcast library, and persistent player experience.",
+      ],
+      tech: ["Next.js", "React", "Streaming"],
+    },
+    {
       name: "StudyNotion",
       tag: "Ed-Tech Platform",
       initials: "SN",
       accent: "from-indigo-500/90 to-violet-600/90",
+      image: "/projects/studynotion.png",
       liveUrl: "https://ed-tech-mern.vercel.app/",
       bullets: [
         "Ed-Tech platform with JWT auth, role-based access, and content rating.",
@@ -78,6 +96,7 @@ export const site = {
       tag: "Resume Product",
       initials: "CV",
       accent: "from-sky-500/90 to-indigo-600/90",
+      image: "/projects/cv-builder.png",
       liveUrl: "https://cv-builder-omega-lovat.vercel.app/",
       bullets: [
         "ATS-ready resume builder with live A4 preview and one-click vector PDF export.",
@@ -91,6 +110,7 @@ export const site = {
       tag: "Realtime Music",
       initials: "GS",
       accent: "from-rose-500/90 to-orange-500/90",
+      image: "/projects/gana-suno-sunao.jpg",
       liveUrl: "https://gana-suno-sunao.vercel.app/",
       bullets: [
         "Shared listening rooms so friends hear the same song at the same second.",
@@ -104,6 +124,7 @@ export const site = {
       tag: "Travel Platform",
       initials: "ST",
       accent: "from-emerald-500/90 to-teal-600/90",
+      image: "/projects/solotrip.jpg",
       liveUrl: "https://solo-trip.netlify.app/",
       bullets: [
         "Solo-travel planner with curated destinations, routes, and trip saving.",
@@ -117,7 +138,8 @@ export const site = {
       tag: "Infrastructure",
       initials: "US",
       accent: "from-amber-500/90 to-orange-600/90",
-      liveUrl: "",
+      image: "/projects/url-shortener.png",
+      liveUrl: "https://www.jpuja.cloud/",
       bullets: [
         "Scalable URL shortening with custom short links and redirect handling.",
         "Analytics, REST APIs, and database-backed URL management.",
