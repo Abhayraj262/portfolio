@@ -22,15 +22,29 @@ export default function Contact() {
     setFeedback("");
 
     try {
-      const response = await fetch("/api/contact", {
+      const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+      if (!accessKey) {
+        throw new Error("The contact form is not configured yet.");
+      }
+
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: form.name.trim(),
+          email: form.email.trim(),
+          message: form.message.trim(),
+          subject: `Portfolio inquiry from ${form.name.trim()}`,
+        }),
       });
       const result = await response.json();
 
-      if (!response.ok || !result.ok) {
-        throw new Error(result.error || "Could not send your message.");
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Could not send your message.");
       }
 
       setForm(initialForm);
