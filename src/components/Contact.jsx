@@ -5,21 +5,44 @@ import { site } from "@/src/data/site";
 import FadeIn from "./FadeIn";
 import { MailIcon, PhoneIcon } from "./Icons";
 
+const initialForm = { name: "", email: "", message: "" };
+
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState(initialForm);
+  const [status, setStatus] = useState("idle");
+  const [feedback, setFeedback] = useState("");
 
   function onChange(event) {
     setForm((prev) => ({ ...prev, [event.target.name]: event.target.value }));
   }
 
-  function onSubmit(event) {
+  async function onSubmit(event) {
     event.preventDefault();
-    const subject = encodeURIComponent(`Portfolio inquiry from ${form.name || "a visitor"}`);
-    const body = encodeURIComponent(
-      `${form.message}\n\n— ${form.name}\n${form.email}`
-    );
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
+    setStatus("loading");
+    setFeedback("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const result = await response.json();
+
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || "Could not send your message.");
+      }
+
+      setForm(initialForm);
+      setStatus("success");
+      setFeedback("Thanks — I’ll get back to you soon.");
+    } catch (error) {
+      setStatus("error");
+      setFeedback(error.message || "Something went wrong. Please try again.");
+    }
   }
+
+  const isSending = status === "loading";
 
   return (
     <section id="contact" className="border-t border-border">
@@ -67,7 +90,8 @@ export default function Contact() {
                 value={form.name}
                 onChange={onChange}
                 required
-                className="mt-2 w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-foreground outline-none transition-shadow focus:shadow-[0_0_0_3px_var(--glow)]"
+                disabled={isSending}
+                className="mt-2 w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-foreground outline-none transition-shadow focus:shadow-[0_0_0_3px_var(--glow)] disabled:opacity-60"
               />
             </label>
             <label className="mt-4 block text-sm text-muted">
@@ -78,7 +102,8 @@ export default function Contact() {
                 value={form.email}
                 onChange={onChange}
                 required
-                className="mt-2 w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-foreground outline-none transition-shadow focus:shadow-[0_0_0_3px_var(--glow)]"
+                disabled={isSending}
+                className="mt-2 w-full rounded-xl border border-border bg-background px-3.5 py-2.5 text-foreground outline-none transition-shadow focus:shadow-[0_0_0_3px_var(--glow)] disabled:opacity-60"
               />
             </label>
             <label className="mt-4 block text-sm text-muted">
@@ -89,15 +114,25 @@ export default function Contact() {
                 value={form.message}
                 onChange={onChange}
                 required
-                className="mt-2 w-full resize-none rounded-xl border border-border bg-background px-3.5 py-2.5 text-foreground outline-none transition-shadow focus:shadow-[0_0_0_3px_var(--glow)]"
+                disabled={isSending}
+                className="mt-2 w-full resize-none rounded-xl border border-border bg-background px-3.5 py-2.5 text-foreground outline-none transition-shadow focus:shadow-[0_0_0_3px_var(--glow)] disabled:opacity-60"
               />
             </label>
             <button
               type="submit"
-              className="mt-6 inline-flex h-11 w-full items-center justify-center rounded-full bg-foreground text-sm font-medium text-background transition-opacity hover:opacity-90"
+              disabled={isSending}
+              className="mt-6 inline-flex h-11 w-full items-center justify-center rounded-full bg-foreground text-sm font-medium text-background transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
             >
-              Send message
+              {isSending ? "Sending…" : "Send message"}
             </button>
+            {feedback ? (
+              <p
+                className={`mt-3 text-sm ${status === "success" ? "text-accent" : "text-muted"}`}
+                role="status"
+              >
+                {feedback}
+              </p>
+            ) : null}
           </form>
         </FadeIn>
       </div>
